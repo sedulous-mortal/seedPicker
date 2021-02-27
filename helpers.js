@@ -38,6 +38,7 @@ function init() {
     }
     // populate with 2 seeds to test
     ownedSeeds.push(seeds[0], seeds[1]);
+    renderHome()
 }
 
 function showSeed(e) {
@@ -59,8 +60,24 @@ function renderSeed(seed) {
 
 function goHome(){
     document.getElementsByClassName('jumbotron')[0].style.display = "block";
+    renderHome()
 }
 
+// template literal definition of homepage as a dumb component
+function renderHome(){
+    document.getElementsByClassName('content')[0].innerHTML = `
+    <p>Caleb Warnock sells seeds
+            <a href="https://www.mcssl.com/store/calebwarnock/catalog/search">here</a>
+            as a part of the Seed Renaissance movement he is leading, to ensure that our food supply remains in the
+            public domain.
+            Every seed he sells is guaranteed pure, NEVER hybrid, GMO, patented, or corporate owned. All of his seeds
+            are 100% natural, grown without chemicals.
+    </p>
+    <p>SeedPicker allows gardeners to innovate on their planting calendar and optimize crop rotation, produce output, and seed stocking.</p>
+    `
+}
+
+// template literal definition of seed as a dumb component
 const Seed = (seed) => {return (`
 <h1>${seed.Name}</h1>
 <p>${seed.Desc}</p>
