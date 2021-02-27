@@ -7,66 +7,45 @@ var seeds = [];
 var ownedSeeds = [];
 var selectedSeedName = '';
 
-// from https://www.geekstrick.com/load-json-file-locally-using-pure-javascript/
-function loadJSON(callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'data.json', true);
-
-    xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value 
-            // but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-        }
-    };
-    xobj.send(null);
-}
-/* The function above will create a new instance of an XMLHttpRequest and load asynchronously
- the contents of data.json. Author has gone with asynchronous but we can change the argument
-  to false if we want a synchronous load. */
-
 function init() {
-    loadJSON(function (response) {
-        // Parsing JSON string into object
-        seeds = JSON.parse(response);
-        console.log('seeds', seeds)
-        ownedSeeds = [...seeds]
-        console.log('ownedSeeds', ownedSeeds)
-    });
-
-    // populate with 2 seeds to test - not working
-    //ownedSeeds.push(seeds[0], seeds[1]);
-
-    for (let i=0; i<ownedSeeds.length-1; i++) {
-        console.log('in')
-        console.log(i, ownedSeeds[i])
-            document.getElementsById('seed-nav')[0].insertAdjacentHTML('afterend', `
-            <li onclick="showSeed(event)">${ownedSeeds[i].Name}</li>
-            `)
+     /*Nicholas' version */
+     async function getJSON(path, callback) {
+         return callback(await fetch(path).then(r => r.json()));
+     }
+     // here is Nicholas' self-instantiating anonymous function
+     (async function () {
+         // this line makes sure with await that we are getting ALL the seeds at once
+         seeds = await getJSON('./data.json', data => data);
+         // TIL that $ helps us denote seedList will be a dom node/element. THX Nicholas
+         const $seedList = document.getElementById('seed-nav');
+         for (let seed of seeds) {
+             $seedList.insertAdjacentHTML(
+                 'afterend',
+                 `<li onclick="showSeed(event)">${seed.Name}</li>`
+             )
+         }
+     })();
+     renderHome();
     }
-    renderHome()
-}
 
-function showSeed(e) {
-    seedName = e.target.outerText;
-    let seedToRender = seeds.filter((seed) => {
-        return seed.Name == seedName
-    })[0];
-    renderSeed(seedToRender);
-}
+     function showSeed(e) {
+         seedName = e.target.outerText;
+         let seedToRender = seeds.filter((seed) => {
+             console.log('seed', seed) // this never comes out, probably cuz we're in a filter 
+             return seed.Name == seedName
+         })[0];
+         renderSeed(seedToRender);
+     }
 
-function renderSeed(seed) {
-    selectedSeedName = seed.Name;
-    console.log(selectedSeedName);
-    //hide jumbotron
-    document.getElementsByClassName('jumbotron')[0].style.display = "none";
-    // replace core content with seed info
-    document.getElementsByClassName('content')[0].innerHTML = Seed(seed)
-}
+     function renderSeed(seed) {
+         selectedSeedName = seed.Name;
+         //hide jumbotron
+         document.getElementsByClassName('jumbotron')[0].style.display = "none";
+         // replace core content with seed info
+         document.getElementsByClassName('content')[0].innerHTML = Seed(seed)
+     }
 
-function goHome(){
+     function goHome() {
     document.getElementsByClassName('jumbotron')[0].style.display = "block";
     renderHome()
 }
