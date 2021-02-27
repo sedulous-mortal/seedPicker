@@ -35,6 +35,19 @@ header img{
 .content {
     flex: 3;
 }
+.seed-deets{
+    display: flex;
+}
+
+.seed-image{
+    flex: 1;
+    border: 2px solid purple;
+}
+
+.further-seed-info {
+    flex:  2;
+    border: 2px solid blue;
+}
 
 .selected-seeds-list{
     border-left: 3px solid rgb(45, 68, 45);
@@ -90,6 +103,3 @@ ul li:hover{
     height: 5vh;
     color: white;
 }
-
-
-

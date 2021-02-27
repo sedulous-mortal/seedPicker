@@ -82,5 +82,12 @@ const Seed = (seed) => {return (`
 <h1>${seed.Name}</h1>
 <p>${seed.Desc}</p>
 <p>${seed.NutritionInfo}</p>
-<img src=${seed.Img}></img>
+<div class="seed-deets-wrapper">
+    <div class="seed-image">
+        <img src=${seed.Img}></img>
+    <div>
+    <div class="further-seed-info">
+    <p>${seed.SeedCount} seeds for $${seed.Price}</p>
+    </div>
+</div>
 `)} ;
