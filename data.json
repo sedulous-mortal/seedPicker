@@ -1,6 +1,7 @@
 [
     {
         "Name": "Alfalfa",
+        "Botanical Name": "unknown",
         "Desc":"The multivitamin of the garden! Filled with vitamins, full of health fresh or dried. Of course we also use them to feed our rabbits and miniature horse!",
         "DaysToGerm": 0,
         "DaysToProduce": 0,
@@ -17,6 +18,7 @@
         "Img": "./pics/alfalfa.png"
     }, {
         "Name": "Amber Tomatoes",
+        "Botanical Name": "unknown",
         "Desc": "Gold-colored medium tomato, heavy producer, loved for its very early production (60 days) semi-determinate, plentiful and good sweet flavor.",
         "DaysToGerm": 0,
         "DaysToProduce": 60,
@@ -33,20 +35,38 @@
         "Sunlight": "Full",
         "Img": "./pics/amberTomatoes.png"
     }, {
-    "Name": "Amish Paste Tomatoes",
-    "Desc": "Annual. Huge fleshy goodness with few seeds, a standard for making tomato sauce. Annual determinate flush of ripe fruit followed by an indeterminate crop.",
-    "DaysToGerm": "unknown",
-    "DaysToProduce": "unknown",
-    "Determination": "Determinate",
-    "SeedCount": 12,
-    "Price": 1.40,
-    "NutritionInfo": "Amish Paste Tomatoes provide potassium (10%DV), dietary fiber (4%DV), vitamin A (40%DV), vitamin C (20%DV), calcium (2%DV) and iron (4%DV).",
-    "HowToGrow": "Plant seeds indoors or in a greenhouse in March, or 8-10 weeks before your last frost date. Keep moist until germination. Seedlings must have direct, full sunlight. Harvest the tomatoes as they turn red and slightly soft to the touch. Start indoors 4-6 weeks before last frost. Transplant outside after all danger of frost. Tomatoes begin to grow heavily in hot weather, but do not produce fruit in temperatures above 95 degrees. Amish Paste tomatoes are medium to large in size and determinate, which means they will heavily set fruit in a short window, instead of setting fruit randomly through the season. Determinate cultivars like Amish Paste are preferred for canning and freezing because the crop comes on at basically the same time. Tomatoes may be pruned if you wish fewer fruits that are larger, but I don't prune my plants because I'm happy to have more tomatoes that are slightly smaller. Tomatoes tend to crack easily when overwatered. Make sure you reduce watering when tomatoes begin to ripen. Amish Paste tomatoes are about 20 percent larger than Roma tomatoes but set about 30 percent fewer tomatoes.",
-    "PlantingDepthInInches": 0.25,
-    "CanStandFrost": "No",
-    "SpacingInInches": "unknown",
-    "Frequency": "Biannual",
-    "Sunlight": "Full",
-    "Img": "./pics/amishPasteTomatoes.jpeg"
+        "Name": "Amish Paste Tomatoes",
+        "Botanical Name": "unknown",
+        "Desc": "Annual. Huge fleshy goodness with few seeds, a standard for making tomato sauce. Annual determinate flush of ripe fruit followed by an indeterminate crop.",
+        "DaysToGerm": "unknown",
+        "DaysToProduce": "unknown",
+        "Determination": "Determinate",
+        "SeedCount": 12,
+        "Price": 1.40,
+        "NutritionInfo": "Amish Paste Tomatoes provide potassium (10%DV), dietary fiber (4%DV), vitamin A (40%DV), vitamin C (20%DV), calcium (2%DV) and iron (4%DV).",
+        "HowToGrow": "Plant seeds indoors or in a greenhouse in March, or 8-10 weeks before your last frost date. Keep moist until germination. Seedlings must have direct, full sunlight. Harvest the tomatoes as they turn red and slightly soft to the touch. Start indoors 4-6 weeks before last frost. Transplant outside after all danger of frost. Tomatoes begin to grow heavily in hot weather, but do not produce fruit in temperatures above 95 degrees. Amish Paste tomatoes are medium to large in size and determinate, which means they will heavily set fruit in a short window, instead of setting fruit randomly through the season. Determinate cultivars like Amish Paste are preferred for canning and freezing because the crop comes on at basically the same time. Tomatoes may be pruned if you wish fewer fruits that are larger, but I don't prune my plants because I'm happy to have more tomatoes that are slightly smaller. Tomatoes tend to crack easily when overwatered. Make sure you reduce watering when tomatoes begin to ripen. Amish Paste tomatoes are about 20 percent larger than Roma tomatoes but set about 30 percent fewer tomatoes.",
+        "PlantingDepthInInches": 0.25,
+        "CanStandFrost": "No",
+        "SpacingInInches": "unknown",
+        "Frequency": "Biannual",
+        "Sunlight": "Full",
+        "Img": "./pics/amishPasteTomatoes.jpeg"
+    },
+    {
+        "Name": "Anise Hyssop",
+        "Botanical Name": "Agastache foeniculum",
+        "Desc": "Perennial mint so popular for tea because of its fragrance, flavor and health benefits.",
+        "DaysToGerm": "unknown",
+        "DaysToProduce": "unknown",
+        "Determination": "unknown",
+        "SeedCount": 30,
+        "Price": 1.40,
+        "NutritionInfo": "unknown",
+        "HowToGrow": "unknown",
+        "PlantingDepthInInches": 0,
+        "CanStandFrost": "unknown",
+        "SpacingInInches": "unknown",
+        "Frequency": "Intermittent",
+        "Img": "./pics/aniseHyssop.png"
     }
 ]
