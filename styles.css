@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 p, h1 {
@@ -22,11 +24,11 @@ header img{
 }
 
 .jumbotron {
-    padding: 0 20vw;
+    margin-left: 175px;
 }
 
 .core {
-    padding: 0 20vw;
+    margin-left: 175px;
     display: flex;
 }
 
@@ -35,12 +37,14 @@ header img{
 }
 
 .selected-seeds-list{
+    border-left: 3px solid rgb(45, 68, 45);
     flex: 1;
     /* border-left: 2px solid darkslategrey; */
     background-color: rgb(169, 197, 197);
     /* background-color: rgb(45, 68, 45); */
     color: darkslategrey;
 }
+
 div .seeds{
     text-align: center;
     font-weight: 900;
@@ -49,7 +53,23 @@ div .seeds{
 }
 
 ul {
-    border: 10px solid rgb(99, 55, 18);
+    /*rgb(99, 55, 18);*/
+}
+
+footer{
+    width: 100vw;
+    height: 8vh;
+    background-color: #65ff67;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer  p {
+    line-height: 20vh;
 }
 
 ul li {

@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <header><img src="./pics/WarnockSeeds.jpg"></header>
+    <header>
+        <img src="./pics/WarnockTree.png" onclick="goHome()"><img src="./pics/WarnockSeedBrand.png">
+    </header>
     <div class="jumbotron">
         <h1>Welcome! You've got seeds!</h1>
     </div>
@@ -30,14 +32,15 @@
             <div class="seeds">SEEDS</div>
             <ul>
                 <li onclick="showSeed(event)">Alfalfa</li>
-                <li>Beets</li>
-                <li>Carrots</li>
-                <li>Cherries</li>
-                <li>Tomato</li>
-                <li>Zucchini</li>
+                <li onclick="showSeed(event)">Amber Tomatoes</li>
             </ul>
         </div>
     </div>
+    <footer>
+        <div> Made with love by <a href="https://www.linkedin.com/in/alison-n-stuart" target="_blank">Alison Stuart</a> 
+            <a target="_blank" href="https://github.com/sedulous-mortal/seedPicker"><img src="./pics/githubLogo.png" height="20vh"></a>
+        </div>
+    </footer>
 </body>
 
 </html>
