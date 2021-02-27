@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+}
+
+p, h1 {
+    margin: 2vh;
+}
+
+h1 {
+    font-size: 3vh;
+}
+
+header{
+    background-color: #65ff67;
+    width: 100vw;
+    text-align: left;
+    height: 12vh;
+}
+
+header img{
+    height: 12vh;
+}
+
+.jumbotron {
+    padding: 0 20vw;
+}
+
+.core {
+    padding: 0 20vw;
+    display: flex;
+}
+
+.content {
+    flex: 3;
+}
+
+.selected-seeds-list{
+    flex: 1;
+    /* border-left: 2px solid darkslategrey; */
+    background-color: rgb(169, 197, 197);
+    /* background-color: rgb(45, 68, 45); */
+    color: darkslategrey;
+}
+div .seeds{
+    text-align: center;
+    font-weight: 900;
+    padding-top: 2vh;
+    background-color: rgb(45, 68, 45);
+}
+
+ul {
+    border: 10px solid rgb(99, 55, 18);
+}
+
+ul li {
+    list-style: none;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding-left: 2vw;
+}
+
+ul li:hover{
+    border-left: 4px solid white;
+    padding-left: .5vw;
+    transition-duration: .15s;
+}
+
+.selected-seeds-list div {
+    height: 5vh;
+    color: white;
+}
+
+
+
