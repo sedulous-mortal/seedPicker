@@ -16,28 +16,37 @@ function loadJSON(callback) {
 
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            // Required use of an anonymous callback as .open will NOT return a value 
+            // but simply returns undefined in asynchronous mode
             callback(xobj.responseText);
         }
     };
     xobj.send(null);
 }
-/* The function above will create a new instance of an XMLHttpRequest and load asynchronously the contents of data.json. Author has gone with asynchronous but we can change the argument to false if we want a synchronous load. */
+/* The function above will create a new instance of an XMLHttpRequest and load asynchronously
+ the contents of data.json. Author has gone with asynchronous but we can change the argument
+  to false if we want a synchronous load. */
 
 function init() {
     loadJSON(function (response) {
         // Parsing JSON string into object
         seeds = JSON.parse(response);
+        console.log('seeds', seeds)
+        ownedSeeds = [...seeds]
+        console.log('ownedSeeds', ownedSeeds)
     });
 
-    for (let i in ownedSeeds) {
-        if (i <= ownedSeeds.length-1) {
-            document.getElementsByTagName('ul')[0].insertAdjacentHTML('afterend', `<li onclick="showSeed(event)">${ownedSeeds[i].Name}</li>`)
-        }
-        i++;
+    // populate with 2 seeds to test - not working
+    //ownedSeeds.push(seeds[0], seeds[1]);
+
+    for (let i=0; i<ownedSeeds.length-1; i++) {
+        console.log('in')
+        console.log(i, ownedSeeds[i])
+            document.getElementsByTagName('ul')[0].insertAdjacentHTML('afterend', `
+            <li onclick="showSeed(event)">${ownedSeeds[i].Name}</li>
+            `)
     }
-    // populate with 2 seeds to test
-    ownedSeeds.push(seeds[0], seeds[1]);
+    console.log('here')
     renderHome()
 }
 
@@ -68,10 +77,8 @@ function renderHome(){
     document.getElementsByClassName('content')[0].innerHTML = `
     <p>Caleb Warnock sells seeds
             <a href="https://www.mcssl.com/store/calebwarnock/catalog/search">here</a>
-            as a part of the Seed Renaissance movement he is leading, to ensure that our food supply remains in the
-            public domain.
-            Every seed he sells is guaranteed pure, NEVER hybrid, GMO, patented, or corporate owned. All of his seeds
-            are 100% natural, grown without chemicals.
+            as a part of the Seed Renaissance movement he is leading, to ensure that our food supply remains in the public domain.
+            Every seed he sells is guaranteed pure, NEVER hybrid, GMO, patented, or corporate owned. All of his seeds are 100% natural, grown without chemicals.
     </p>
     <p>SeedPicker allows gardeners to innovate on their planting calendar and optimize crop rotation, produce output, and seed stocking.</p>
     `
