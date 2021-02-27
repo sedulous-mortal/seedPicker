@@ -65,10 +65,6 @@ div .seeds{
     background-color: rgb(45, 68, 45);
 }
 
-ul {
-    /*rgb(99, 55, 18);*/
-}
-
 footer{
     width: 100vw;
     height: 8vh;
@@ -85,7 +81,7 @@ footer  p {
     line-height: 20vh;
 }
 
-ul li {
+.seed-nav li {
     list-style: none;
     height: 5vh;
     display: flex;
@@ -93,7 +89,7 @@ ul li {
     padding-left: 2vw;
 }
 
-ul li:hover{
+.seed-nav li:hover{
     border-left: 4px solid white;
     padding-left: .5vw;
     transition-duration: .15s;

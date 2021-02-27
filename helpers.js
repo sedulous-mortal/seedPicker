@@ -42,11 +42,10 @@ function init() {
     for (let i=0; i<ownedSeeds.length-1; i++) {
         console.log('in')
         console.log(i, ownedSeeds[i])
-            document.getElementsByTagName('ul')[0].insertAdjacentHTML('afterend', `
+            document.getElementsById('seed-nav')[0].insertAdjacentHTML('afterend', `
             <li onclick="showSeed(event)">${ownedSeeds[i].Name}</li>
             `)
     }
-    console.log('here')
     renderHome()
 }
 
