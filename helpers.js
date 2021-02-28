@@ -8,7 +8,7 @@ var ownedSeeds = [];
 var selectedSeedName = '';
 
 function init() {
-     /*Nicholas' version */
+     /*Nicholas Hazel's version */
      async function getJSON(path, callback) {
          return callback(await fetch(path).then(r => r.json()));
      }
@@ -32,7 +32,6 @@ function init() {
              }
          }
      })();
-
      renderHome();
 }
 
@@ -62,12 +61,18 @@ function goHome() {
 
 // template literal definition of homepage as a dumb component
 function renderHome(){
-    // if seeds is undefined, null, or empty:
-    if(!seeds || !(seeds.length > 0)){ 
+    // if seeds is empty:
+    if(seeds && seeds.length === 0){ 
         //  hide ul and instead show a message: you should get seeds
         document.getElementById('seed-nav').style.display = "none";
-        document.getElementsByClassName('owned-seeds-list')[0].insertAdjacentHTML('beforeend', `<p>You should get some seeds :) </p>`)
+        document.getElementsByClassName('owned-seeds-list')[0].insertAdjacentHTML('beforeend', `<p id="no-seeds">You should get some seeds :) </p>`)
     }
+    // Houston, we have a problem - the no-seeds p tag is showing
+    // EVEN WHEN WE HAVE SEEDS :( -- at least when I remove all seeds 
+    // from the raw data, I get the p tag as intended.
+    // I tried adding this but it obviously doesnt work, this is a 
+    // sychronicity issue, again.
+    // if(seeds && seeds.length > 0) { document.getElementById('no-seeds').style.display = 'none'}
     document.getElementsByClassName('content')[0].innerHTML = `
     <p>Caleb Warnock sells seeds
             <a href="https://www.mcssl.com/store/calebwarnock/catalog/search">here</a>
@@ -82,7 +87,7 @@ function renderHome(){
 const Seed = (seed) => {
     return (`
 <h1>${seed.Name && seed.Name !== "unknown" ? seed.Name : "Unidentified Seed"}</h1>
-<h2>${seed.Name == "Unidentified Seed" ? "Sorry, we couldn't find that seed. Click the tree in the top left to get home" : ""}</h2>
+<h2>${seed.Name == "Unidentified Seed" ? "</br> Sorry, we couldn't find that seed. </br> </br> Click the tree in the top left to get home. " : ""}</h2>
 <h2>${seed.BotanicalName && seed.BotanicalName!=="unknown" ? seed.BotanicalName : ""}</h2>
 <p>${seed.Desc && seed.Desc !== "unknown" ? seed.Desc : ""}</p>
 <p>${seed.NutritionInfo && seed.NutritionInfo!=="unknown" ? seed.NutritionInfo :  ""}</p>
