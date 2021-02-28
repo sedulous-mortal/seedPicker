@@ -20,3 +20,5 @@
     }
 
 # Suggestions
+- add null-checking  for the whole UL, if no seeds are defined or the list is empty show a nice message that  you should get some seeds
+- your appends are causing your list items  to show up Z-A from top to bottom, oops.

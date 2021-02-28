@@ -19,39 +19,55 @@ function init() {
          // TIL that $ helps us denote seedList will be a dom node/element. THX Nicholas
          const $seedList = document.getElementById('seed-nav');
          for (let seed of seeds) {
-             $seedList.insertAdjacentHTML(
-                 'afterend',
-                 `<li class="seed-name" onclick="showSeed(event)">${seed.Name}</li>`
-             )
+             if(seed && seed.Name){
+                $seedList.insertAdjacentHTML(
+                    'afterend',
+                    `<li class="seed-name" onclick="showSeed(event)">${seed.Name}</li>`
+                )
+             } else if (seed) {
+                $seedList.insertAdjacentHTML(
+                    'afterend',
+                    `<li class="seed-name" onclick="showSeed(event)">Unidentified Seed</li>`
+                )
+             }
          }
      })();
+
      renderHome();
-    }
+}
 
-     function showSeed(e) {
-         seedName = e.target.outerText;
-         let seedToRender = seeds.filter((seed) => {
-             console.log('seed', seed) // this never comes out, probably cuz we're in a filter 
-             return seed.Name == seedName
-         })[0];
-         renderSeed(seedToRender);
-     }
+function showSeed(e) {
+    seedName = e.target.outerText;
+    let seedToRender;
+    if(seedName !== "Unidentified Seed"){
+        seedToRender = seeds.filter((seed) => {
+        return seed.Name == seedName;
+    })[0];
+    }else seedToRender = { "Name": "Unidentified Seed"}
+    renderSeed(seedToRender);
+}
 
-     function renderSeed(seed) {
-         selectedSeedName = seed.Name;
-         //hide jumbotron
-         document.getElementsByClassName('jumbotron')[0].style.display = "none";
-         // replace core content with seed info
-         document.getElementsByClassName('content')[0].innerHTML = Seed(seed)
-     }
+function renderSeed(seed) {
+    selectedSeedName = seed.Name;
+    //hide jumbotron
+    document.getElementsByClassName('jumbotron')[0].style.display = "none";
+    // replace core content with seed info
+    document.getElementsByClassName('content')[0].innerHTML = Seed(seed)
+}
 
-     function goHome() {
+function goHome() {
     document.getElementsByClassName('jumbotron')[0].style.display = "block";
     renderHome()
 }
 
 // template literal definition of homepage as a dumb component
 function renderHome(){
+    // if seeds.length is 
+    if(!seeds || !(seeds.length > 0)){ 
+        //  hide ul and instead  show a message: you should get seeds
+        document.getElementById('seed-nav').style.display = "none";
+        document.getElementById('owned-seeds-list').insertAdjacentHTML('beforeend', `<p>You should get some seeds :) </p>`)
+    }
     document.getElementsByClassName('content')[0].innerHTML = `
     <p>Caleb Warnock sells seeds
             <a href="https://www.mcssl.com/store/calebwarnock/catalog/search">here</a>
@@ -63,16 +79,19 @@ function renderHome(){
 }
 
 // template literal definition of seed as a dumb component
-const Seed = (seed) => {return (`
-<h1>${seed.Name}</h1>
-<p>${seed.Desc}</p>
-<p>${seed.NutritionInfo}</p>
+const Seed = (seed) => {
+    return (`
+<h1>${seed.Name && seed.Name !== "unknown" ? seed.Name : "Unidentified Seed"}</h1>
+<h2>${seed.Name == "Unidentified Seed" ? "Sorry, we couldn't find that seed. Click the tree in the top left to get home" : ""}</h2>
+<h2>${seed.BotanicalName && seed.BotanicalName!=="unknown" ? seed.BotanicalName : ""}</h2>
+<p>${seed.Desc && seed.Desc !== "unknown" ? seed.Desc : ""}</p>
+<p>${seed.NutritionInfo && seed.NutritionInfo!=="unknown" ? seed.NutritionInfo :  ""}</p>
 <div class="seed-deets-wrapper">
     <div class="seed-image">
-        <img src=${seed.Img}></img>
+        ${seed.Img ? `<img src=${seed.Img}></img>` : seed.Name !== "Unidentified Seed" ? "No Image on File" : ""}
     <div>
     <div class="further-seed-info">
-    <p>${seed.SeedCount} seeds for $${seed.Price}</p>
+    ${`<p>${seed.SeedCount && seed.SeedCount!=="unknown" && seed.Price && seed.Price!==0 ? `${seed.SeedCount} seeds for $${seed.Price}</p>` : ""}`}
     </div>
 </div>
 `)} ;

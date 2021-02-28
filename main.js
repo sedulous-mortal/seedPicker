@@ -1,6 +1,7 @@
 /* 
 {
     "Name": ,
+    "BotanicalName": ,
     "Desc": ,
     "DaysToGerm": ,
     "DaysToProduce": ,
