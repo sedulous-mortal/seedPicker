@@ -81,7 +81,17 @@ footer  p {
     line-height: 20vh;
 }
 
-.seed-nav li {
+footer a {
+    text-decoration: none;
+    color: rgb(45, 68, 45);
+}
+footer a:hover{
+    color: #583886;
+    font-weight: 500;
+}
+
+/* .seed-nav li { */
+.seed-name {
     list-style: none;
     height: 5vh;
     display: flex;
@@ -89,7 +99,8 @@ footer  p {
     padding-left: 2vw;
 }
 
-.seed-nav li:hover{
+/* .seed-nav li:hover{ */
+.seed-name:hover{
     border-left: 4px solid white;
     padding-left: .5vw;
     transition-duration: .15s;

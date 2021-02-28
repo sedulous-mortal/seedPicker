@@ -21,7 +21,7 @@ function init() {
          for (let seed of seeds) {
              $seedList.insertAdjacentHTML(
                  'afterend',
-                 `<li onclick="showSeed(event)">${seed.Name}</li>`
+                 `<li class="seed-name" onclick="showSeed(event)">${seed.Name}</li>`
              )
          }
      })();
