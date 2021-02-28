@@ -62,11 +62,11 @@ function goHome() {
 
 // template literal definition of homepage as a dumb component
 function renderHome(){
-    // if seeds.length is 
+    // if seeds is undefined, null, or empty:
     if(!seeds || !(seeds.length > 0)){ 
-        //  hide ul and instead  show a message: you should get seeds
+        //  hide ul and instead show a message: you should get seeds
         document.getElementById('seed-nav').style.display = "none";
-        document.getElementById('owned-seeds-list').insertAdjacentHTML('beforeend', `<p>You should get some seeds :) </p>`)
+        document.getElementsByClassName('owned-seeds-list')[0].insertAdjacentHTML('beforeend', `<p>You should get some seeds :) </p>`)
     }
     document.getElementsByClassName('content')[0].innerHTML = `
     <p>Caleb Warnock sells seeds
