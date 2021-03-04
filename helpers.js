@@ -96,7 +96,7 @@ const Seed = (seed) => {
         ${seed.Img ? `<img src=${seed.Img}></img>` : seed.Name !== "Unidentified Seed" ? "No Image on File" : ""}
     <div>
     <div class="further-seed-info">
-    ${`<p>${seed.SeedCount && seed.SeedCount!=="unknown" && seed.Price && seed.Price!==0 ? `${seed.SeedCount} seeds for $${seed.Price}</p>` : ""}`}
+    ${`<p>${seed.SeedCount && seed.SeedCount!=="unknown" && seed.Price && seed.Price!==0 ? `${seed.SeedCount} seeds for $${seed.Price.toString().length == 3 ? seed.Price + "0" : seed.Price}</p>` : ""}`}
     </div>
 </div>
 `)} ;
