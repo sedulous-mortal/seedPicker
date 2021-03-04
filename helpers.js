@@ -21,16 +21,18 @@ function init() {
          for (let seed of seeds) {
              if(seed && seed.Name){
                 $seedList.insertAdjacentHTML(
-                    'afterend',
+                    'beforeend',
                     `<li class="seed-name" onclick="showSeed(event)">${seed.Name}</li>`
                 )
              } else if (seed) {
                 $seedList.insertAdjacentHTML(
-                    'afterend',
+                    'beforeend',
                     `<li class="seed-name" onclick="showSeed(event)">Unidentified Seed</li>`
                 )
              }
          }
+         // this is here for testing
+        // seeds = []
          // this has to happen in here, otherwise seeds is empty when it gets called because of async issues
          renderHome();
      })();
@@ -63,19 +65,14 @@ function goHome() {
 
 // template literal definition of homepage as a dumb component
 function renderHome(){
-    console.log('in renderHome and seeds has ', seeds)
     // if seeds is empty:
     if(seeds && seeds.length === 0){ 
         //  hide ul and instead show a message: you should get seeds
         document.getElementById('seed-nav').style.display = "none";
         document.getElementsByClassName('owned-seeds-list')[0].insertAdjacentHTML('beforeend', `<p id="no-seeds">You should get some seeds :) </p>`)
     }
-    // Houston, we have a problem - the no-seeds p tag is showing
-    // EVEN WHEN WE HAVE SEEDS :( -- at least when I remove all seeds 
-    // from the raw data, I get the p tag as intended.
-    // I tried adding this but it obviously doesnt work, this is a 
-    // sychronicity issue, again.
-    // if(seeds && seeds.length > 0) { document.getElementById('no-seeds').style.display = 'none'}
+    // hide the seeds menu entirely if no seeds are available in the array - not working
+    // if(seeds && seeds.length > 0) { document.getElementByClassName('owned-seeds-list')[0].style.display = 'none' }
     document.getElementsByClassName('content')[0].innerHTML = `
     <p>Caleb Warnock sells seeds
             <a href="https://www.mcssl.com/store/calebwarnock/catalog/search">here</a>
