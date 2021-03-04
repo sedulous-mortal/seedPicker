@@ -8,3 +8,4 @@ SeedPicker allows gardeners to innovate on their planting calendar and optimize 
 
 ## Stack
 This is still in progress, but right now I'm trying to go as vanilla as possible. Eventually I'll probably use some Material icons and/or get the npm monster going.
+> Note: I may also switch over to React/Node if things get exciting enough :)

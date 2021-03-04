@@ -31,8 +31,10 @@ function init() {
                 )
              }
          }
+         // this has to happen in here, otherwise seeds is empty when it gets called because of async issues
+         renderHome();
      })();
-     renderHome();
+     
 }
 
 function showSeed(e) {
@@ -61,6 +63,7 @@ function goHome() {
 
 // template literal definition of homepage as a dumb component
 function renderHome(){
+    console.log('in renderHome and seeds has ', seeds)
     // if seeds is empty:
     if(seeds && seeds.length === 0){ 
         //  hide ul and instead show a message: you should get seeds
