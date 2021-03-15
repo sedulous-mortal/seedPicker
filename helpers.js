@@ -33,7 +33,7 @@ function init() {
          }
          // this is here for testing
         // seeds = []
-         // this has to happen in here, otherwise seeds is empty when it gets called because of async issues
+         // renderHome has to happen in here, otherwise seeds is empty when it gets called because of async issues
          renderHome();
      })();
      
